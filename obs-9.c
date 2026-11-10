@@ -6,7 +6,6 @@ struct Node
     int rollNo;
     struct Node *left, *right;
 };
-
 struct Node *createNode(int rollNo)
 {
     struct Node *newNode = (struct Node *)malloc(sizeof(struct Node));
@@ -14,28 +13,22 @@ struct Node *createNode(int rollNo)
     newNode->left = newNode->right = NULL;
     return newNode;
 }
-
 struct Node *insert(struct Node *root, int dataToInsert)
 {
     if (root == NULL)
         return createNode(dataToInsert);
-
     if (dataToInsert < root->rollNo)
         root->left = insert(root->left, dataToInsert);
-
     else if (dataToInsert > root->rollNo)
         root->right = insert(root->right, dataToInsert);
-
     return root; // Returning the updated tree's root pointer
 }
-
 struct Node *findMin(struct Node *root)
 {
     while (root->left != NULL)
         root = root->left;
     return root;
 }
-
 struct Node *deleteNode(struct Node *root, int rollNo)
 {
     if (root == NULL)
@@ -64,7 +57,6 @@ struct Node *deleteNode(struct Node *root, int rollNo)
     }
     return root;
 }
-
 void inOrder(struct Node *root)
 {
     if (root == NULL)
@@ -81,7 +73,6 @@ void preOrder(struct Node *root)
     preOrder(root->left);
     preOrder(root->right);
 }
-
 void postOrder(struct Node *root)
 {
     if (root == NULL)
