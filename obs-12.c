@@ -1,5 +1,6 @@
 #include <stdio.h>
 #define TABLE_SIZE 7
+
 int hashTable[TABLE_SIZE];
 int isOccupied[TABLE_SIZE] = {0};
 int hashFunction(int key)
